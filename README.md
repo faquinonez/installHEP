@@ -4,9 +4,11 @@ UBUNTU MATE 16.04 ARCH=64.
 
 INSTALL CLHEP
 -------------
+```
 sudo apt-get install cmake cmake-curses-gui
 sudo apt-get install git dpkg-dev make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev
-
+```
+```
 cd $HOME
 mkdir CLHEP
 cd CLHEP
@@ -18,11 +20,12 @@ cmake -DCMAKE_INSTALL_PREFIX=$HOME/CLHEP/2.3.1.1-install $HOME/CLHEP/2.3.1.1/CLH
 make -j4
 make test
 make install
-
+```
 edit .bashrc and add
+```
 export PATH=$PATH:$HOME/2.3.1.1-install/bin:$HOME/2.3.1.1-install/include
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/CLHEP/2.3.1.1-install/lib
-
+```
 
 
 INSTALL PYTHIA8
@@ -46,6 +49,7 @@ export PYTHIA=$HOME/PYTHIA8/pythia8219/lib
 
 INSTALL ROOT 5.34.36
 --------------------
+```
 cd $HOME
 mkdir ROOT
 cd ROOT
@@ -56,11 +60,12 @@ cd 5.34.36
 sudo apt-get install gfortran libssl-dev libpcre3-dev libglu1-mesa-dev libglew-dev libftgl-dev libmysqlclient-dev libfftw3-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev python-dev libxml2-dev libkrb5-dev libgsl-dev libqt4-dev
 ./configure linuxx8664gcc --enable-pythia8 --all
 make -j4
-
+```
 edit .bashrc and add
 ....................
+```
 source $HOME/ROOT/5.34.36/bin/thisroot.sh
-
+```
 
 
 INSTALL GEANT4 10.02.P02
@@ -69,7 +74,7 @@ Get file from geant4.cern.ch :
 geant4.10.02.p02.tar.gz
 and put it at $HOME/GEANT4
 
-
+```
 cd $HOME/GEANT4
 mkdir 10.02.p02-build 10.02.p02-install
 tar xvfz geant4.10.02.p02.tar.gz
@@ -77,7 +82,6 @@ mv geant4.10.02.p02 10.02.p02
 
 sudo apt-get install libxerces-c-dev libxerces-c-doc libxerces-c-samples libxerces-c3.1 gccxml
 sudo apt-get install libxmu-dev
-
 
 cd 10.02.p02-build
 cmake -DCMAKE_INSTALL_PREFIX=$HOME/GEANT4/10.02.p02-install \
@@ -92,10 +96,12 @@ $HOME/GEANT4/10.02.p02
 make -j4
 make install
 
+```
 create folder for data
 
+```
 mkdir -p $HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data
-
+```
 and download these files from webpage
 
 G4ABLA.3.0.tar.gz
@@ -111,24 +117,24 @@ G4TENDL.1.0.tar.gz
 RealSurface.1.0.tar.gz
 
 change directory to data and extract all
-
+```
 for i in $(ls); do tar xvvfz $i; done
-
-
+```
+```
 edit .bashrc and add
 source $HOME/GEANT4/10.02.p02-install/bin/geant4.sh
-export G4ABLA3.0=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4ABLA3.0
-export G4EMLOW6.48=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4EMLOW6.48
-export G4ENSDFSTATE1.2.3=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4ENSDFSTATE1.2.3
-export G4NDL4.5=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4NDL4.5
-export G4NEUTRONXS1.4=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4NEUTRONXS1.4
-export G4PII1.3=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4PII1.3
-export G4SAIDDATA1.1=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4SAIDDATA1.1
-export G4TENDL1.0=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4TENDL1.0
-export PhotonEvaporation3.2=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/PhotonEvaporation3.2
-export RadioactiveDecay4.3.2=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/RadioactiveDecay4.3.2
-export RealSurface1.0=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/RealSurface1.0
-
+export G4ABLA=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4ABLA3.0
+export G4EMLOW=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4EMLOW6.48
+export G4ENSDFSTATE=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4ENSDFSTATE1.2.3
+export G4NDL=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4NDL4.5
+export G4NEUTRONXS=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4NEUTRONXS1.4
+export G4PII=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4PII1.3
+export G4SAIDDATA=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4SAIDDATA1.1
+export G4TENDL=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/G4TENDL1.0
+export PhotonEvaporation=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/PhotonEvaporation3.2
+export RadioactiveDecay=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/RadioactiveDecay4.3.2
+export RealSurface=$HOME/GEANT4/10.02.p02-install/share/Geant4-10.2.2/data/RealSurface1.0
+```
 
 INSTALL ECAT
 ------------
